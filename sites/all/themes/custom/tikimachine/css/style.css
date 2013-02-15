@@ -1,0 +1,50 @@
+body {
+  background-image: url('../img/tapa_tile4.png');
+}
+
+
+/**********Sidebar************/
+
+.twitter_block > ul {
+  margin: 0 10px;
+}
+
+
+.twitter_block {
+  margin-bottom: 10px;
+}
+
+
+.twitter-block-user {
+  float: left;
+}
+
+
+.tweet-text {
+  margin-left: 58px;
+}
+
+p.tweet-text-inner {
+  margin: 0;
+  font-size: 11px;
+}
+
+
+.twitter_block li.last .tweet {
+  margin-bottom: 0;
+}
+
+
+/************Header***********/
+
+
+header {
+  margin-bottom: 10px;
+}
+
+
+.logo {
+  display: block;
+  width: 394px;
+  margin: auto;
+}

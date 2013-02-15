@@ -1,0 +1,32 @@
+<?php
+
+
+function tikimachine_custom_check_coupons($order) {
+//   drupal_set_message('<pre>' . print_r($order, TRUE) . '</pre>');
+  if (isset($order->commerce_coupon_order_reference['und'])) {
+    foreach ($order->commerce_coupon_order_reference['und'] as $coupon) {
+      $coupon = commerce_coupon_load($coupon['target_id']);
+      if (!tikimachine_validate_coupon($coupon, $order)) {
+        drupal_set_message(__LINE__);
+        commerce_coupon_remove_coupon_from_order($order, $coupon);
+      }
+    }
+  }
+}
+
+
+function tikimachine_validate_coupon($coupon, $order) {
+//   drupal_set_message('<pre>' . print_r(array($coupon, $order), TRUE) . '</pre>');
+  // We use the drupal_static function to generate a global variable.
+  // We set per default the result to TRUE. The rules can modify this values,
+  // by invoking the valid or invalid action.
+  $validation_results = &drupal_static('commerce_coupon_action_validation_results');
+  $validation_results = TRUE;
+
+  // We invoke the rules. The defined action callback methods sets then the
+  // validation result appropriate.
+  rules_invoke_event('commerce_coupon_validate', $coupon, $order);
+
+  // We get our global variable and return the result.
+  return drupal_static('commerce_coupon_action_validation_results');
+}

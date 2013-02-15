@@ -1,0 +1,5 @@
+name = TikiMachine Custom
+package = AAA Custom
+description = "Provides custom code for TikiMachine."
+core = 7.x
+version = "7.x-1.0"
