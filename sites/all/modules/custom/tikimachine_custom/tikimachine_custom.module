@@ -15,6 +15,9 @@ function tikimachine_custom_check_coupons($order) {
 }
 
 
+/** TESTING GITHUB REPO **/
+
+
 function tikimachine_validate_coupon($coupon, $order) {
 //   drupal_set_message('<pre>' . print_r(array($coupon, $order), TRUE) . '</pre>');
   // We use the drupal_static function to generate a global variable.
