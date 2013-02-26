@@ -3,6 +3,16 @@ body {
 }
 
 
+a {
+  color: #0044cc;
+}
+
+
+a:hover {
+  color: #0022cc;
+}
+
+
 /**********Sidebar************/
 
 .twitter_block > ul {
@@ -47,4 +57,48 @@ header {
   display: block;
   width: 394px;
   margin: auto;
+}
+
+
+.secondary-links i {
+
+}
+
+
+.secondary-links .block-commerce-cart {
+  padding: 10px;
+  font-size: 12px;
+}
+
+
+.secondary-links .block-commerce-cart h2 {
+  font-size: 14px;
+  line-height: 16px;
+  margin: 0px 0px 10px 0px;
+}
+
+
+.secondary-links .shopping-cart {
+  min-width: 300px;
+}
+
+
+.secondary-links .shopping-cart .line-item-summary {
+  margin-bottom: 0px;
+}
+
+
+.view .date-nav-wrapper .date-prev {
+  right: auto;
+  left: 0px;
+}
+
+
+.main-links i {
+  margin-right: 5px;
+}
+
+
+.secondary-links .secondary-links-dropdown {
+  list-style: none;
 }

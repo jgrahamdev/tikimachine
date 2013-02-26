@@ -168,7 +168,7 @@ function commerce_coupon_fixed_amount_field_attach_submit($entity_type, $entity,
 /**
  * Implements hook_commerce_coupon_granted_amount_alter().
  */
-function commerce_coupon_fixed_amount_commerce_coupon_granted_amount_alter(&$amount, $coupon, $values) {
+function commerce_coupon_fixed_amount_commerce_coupon_granted_amount_alter(&$amount, $coupon, $order) {
   // Load the fixed amount from the coupon.
   if ($coupon->type == 'commerce_coupon_fixed') {
     $commerce_coupon_wrapper = entity_metadata_wrapper('commerce_coupon', $coupon);

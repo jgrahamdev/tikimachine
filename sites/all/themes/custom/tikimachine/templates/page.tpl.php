@@ -1,4 +1,4 @@
-<header id="navbar" role="banner" class="navbar">
+<header id="navbar" role="banner" class="navbar navbar-inverse">
   <div class="navbar-inner">
     <div class="container">
       <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
@@ -17,15 +17,42 @@
       <?php if ($primary_nav || $secondary_nav || !empty($page['navigation'])): ?>
         <div class="nav-collapse">
           <nav role="navigation">
-            <?php if ($primary_nav): ?>
-              <?php print render($primary_nav); ?>
-            <?php endif; ?>
+            <?php print theme('links__system_main_menu', array(
+              'links' => $main_menu,
+              'attributes' => array(
+              'class' => array( 'nav', 'menu', 'main-links'),
+              ),
+            )); ?>
             <?php if (!empty($page['navigation'])): ?>
               <?php print render($page['navigation']); ?>
             <?php endif; ?>
-            <?php if ($secondary_nav): ?>
-              <?php print render($secondary_nav); ?>
-            <?php endif; ?>
+            <ul class="nav secondary-links pull-right">
+              <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                  <i class="icon-shopping-cart"></i>
+                  <span class="caret"></span>
+                </a>
+                <div class="dropdown-menu shopping-cart">
+                  <?php print render($shopping_cart); ?>
+                </div>
+              </li>
+              <?php if ($secondary_menu): ?>
+                <li class="dropdown">
+                  <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    <i class="icon-user"></i>
+                    <span class="caret"></span>
+                  </a>
+                  <nav id="secondary-menu" role="navigation" class="dropdown-menu">
+                    <?php print theme('links__system_secondary_menu', array(
+                      'links' => $secondary_menu,
+                      'attributes' => array(
+                      'class' => array('secondary-links-dropdown'),
+                      ),
+                      )); ?>
+                  </nav>
+                </li>
+              <?php endif; ?>
+            </ul>
           </nav>
         </div>
       <?php endif; ?>
@@ -91,4 +118,12 @@
   <footer class="footer container">
     <?php print render($page['footer']); ?>
   </footer>
+</div>
+
+
+<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-body">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <?php print render(node_view(node_load(1))); ?>
+  </div>
 </div>

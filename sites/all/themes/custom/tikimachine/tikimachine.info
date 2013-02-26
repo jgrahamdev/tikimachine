@@ -12,8 +12,10 @@ regions[sidebar_first]  = 'Primary'
 regions[sidebar_second] = 'Secondary'
 regions[footer]         = 'Footer'
 
+stylesheets[all][] = css/font-awesome.min.css
 stylesheets[all][] = css/style.css
-stylehseets[all][] = css/font-awesome.min.css
+
+scripts[] = js/tikimachine.js
 
 settings[toggle_name] = 0
 settings[toggle_search] = 1
